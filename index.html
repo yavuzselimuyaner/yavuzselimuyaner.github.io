@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yavuz Selim Uyaner — Computer Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0B0E14;
+    --surface: #12161F;
+    --surface-2: #181D28;
+    --line: #232B38;
+    --text: #E6E9EF;
+    --muted: #7C8798;
+    --accent: #5FD4C0;
+    --accent-dim: #3A8F81;
+    --c-sec: #E5595E;
+    --c-ml: #F2A65A;
+    --c-swe: #6E9FE0;
+    --c-web: #C792EA;
+    --c-theory: #7DCB88;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection{ background: var(--accent); color: #04110E; }
+
+  a{ color: var(--accent); text-decoration: none; }
+  a:hover{ text-decoration: underline; }
+
+  :focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(11,14,20,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .nav-brand{ color: var(--text); font-weight: 700; }
+  .nav-brand span{ color: var(--accent); }
+  .nav-links{ display:flex; gap: 20px; flex-wrap: wrap; }
+  .nav-links a{ color: var(--muted); }
+  .nav-links a:hover{ color: var(--accent); text-decoration: none; }
+
+  /* ---------- HERO / TERMINAL ---------- */
+  .hero{
+    padding: 72px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+  .terminal{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -25px rgba(0,0,0,0.6);
+  }
+  .terminal-bar{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .dot{ width:10px; height:10px; border-radius:50%; }
+  .dot.r{ background:#E5595E44; border:1px solid #E5595E; }
+  .dot.y{ background:#F2A65A44; border:1px solid #F2A65A; }
+  .dot.g{ background:#5FD4C044; border:1px solid #5FD4C0; }
+  .terminal-title{
+    margin-left: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .terminal-body{
+    padding: 28px 24px 32px;
+    font-family: var(--mono);
+    font-size: 14px;
+  }
+  .prompt{ color: var(--accent); }
+  .path{ color: var(--c-swe); }
+  #typed-line{ color: var(--text); }
+  .cursor{
+    display:inline-block;
+    width: 8px;
+    height: 16px;
+    background: var(--accent);
+    margin-left: 2px;
+    vertical-align: -3px;
+    animation: blink 1s step-start infinite;
+  }
+  @keyframes blink{ 50%{ opacity: 0; } }
+
+  .hero-name{
+    font-family: var(--mono);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 800;
+    margin: 26px 0 8px;
+    letter-spacing: -0.5px;
+  }
+  .hero-role{
+    color: var(--muted);
+    font-size: 17px;
+    margin: 0 0 20px;
+    max-width: 60ch;
+  }
+  .hero-role strong{ color: var(--text); font-weight: 600; }
+
+  .badge-row{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .badge{
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  .badge.sec{ color: var(--c-sec); border-color: #E5595E55; background:#E5595E14; }
+  .badge.ml{ color: var(--c-ml); border-color: #F2A65A55; background:#F2A65A14; }
+  .badge.swe{ color: var(--c-swe); border-color: #6E9FE055; background:#6E9FE014; }
+  .badge.web{ color: var(--c-web); border-color: #C792EA55; background:#C792EA14; }
+
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{ padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom: none; }
+
+  .sec-head{
+    display:flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .sec-tag{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .sec-title{
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .sec-title::before{ content: "$ "; color: var(--accent); }
+
+  p.lead{ color: var(--muted); max-width: 62ch; }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .field-row{
+    display:grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 14.5px;
+  }
+  .field-row:last-child{ border-bottom: none; }
+  .field-label{
+    font-family: var(--mono);
+    color: var(--muted);
+    font-size: 12.5px;
+    padding-top: 2px;
+  }
+  .field-value{ color: var(--text); }
+  .field-value .accent{ color: var(--accent); }
+
+  /* ---------- SKILLS (domain-tag style, no ranking implied) ---------- */
+  .skill-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+  }
+  .skill-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px 18px;
+    border-top: 3px solid var(--tag-color, var(--accent));
+  }
+  .skill-card .tag{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--tag-color, var(--accent));
+    margin-bottom: 8px;
+    display:block;
+  }
+  .skill-card h3{
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .skill-card p{
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .cat-block{ margin-bottom: 34px; }
+  .cat-block:last-child{ margin-bottom: 0; }
+  .cat-head{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .cat-dot{ width:9px; height:9px; border-radius:50%; background: var(--cat-color); }
+  .cat-name{
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--cat-color);
+  }
+  .proj-list{ display:flex; flex-direction: column; gap: 12px; }
+  .proj{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .proj:hover{ border-color: var(--accent-dim); transform: translateY(-2px); }
+  .proj-head{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .proj-name{
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .proj-desc{ color: var(--muted); font-size: 13.5px; margin: 8px 0 10px; }
+  .proj-meta{ display:flex; gap: 14px; flex-wrap: wrap; font-family: var(--mono); font-size: 11.5px; }
+  .proj-meta a{ color: var(--c-swe); }
+  .proj-meta a:hover{ color: var(--accent); }
+  .proj-meta span{ color: var(--muted); }
+
+  /* ---------- LOG / ACTIVITY ---------- */
+  .log{
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .log-line{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 14px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+  }
+  .log-line:last-child{ border-bottom: none; }
+  .log-time{ color: var(--accent-dim); }
+  .log-line .ok-tag{ color: var(--accent); font-weight: 600; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-box{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 26px;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items:center;
+    justify-content: space-between;
+  }
+  .contact-links{ display:flex; gap: 20px; flex-wrap: wrap; font-family: var(--mono); font-size: 13.5px; }
+  .contact-links a{ color: var(--text); }
+  .contact-links a:hover{ color: var(--accent); }
+
+  footer{
+    padding: 28px 0 40px;
+    text-align: center;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11.5px;
+  }
+
+  @media (max-width: 600px){
+    .field-row{ grid-template-columns: 1fr; gap: 4px; }
+    .nav-links{ gap: 12px; font-size: 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cursor{ animation: none; }
+    html{ scroll-behavior: auto; }
+    .proj{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">yavuz<span>@</span>portfolio</div>
+    <nav class="nav-links">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#activity">activity</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" id="top">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="terminal-title">yavuz@ankara:~</span>
+      </div>
+      <div class="terminal-body">
+        <span class="prompt">yavuz@ankara</span>:<span class="path">~</span>$ <span id="typed-line"></span><span class="cursor"></span>
+      </div>
+    </div>
+
+    <h1 class="hero-name">Yavuz Selim Uyaner</h1>
+    <p class="hero-role">
+      <strong>Computer Engineering</strong> öğrencisi — Ankara Üniversitesi ·
+      güvenlik, veri/ML ve yazılım geliştirme arasında geniş bir pratik yelpazesi
+    </p>
+
+    <div class="badge-row">
+      <span class="badge sec">SECURITY</span>
+      <span class="badge ml">DATA / ML</span>
+      <span class="badge swe">SOFTWARE ENG.</span>
+      <span class="badge web">WEB</span>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-head">
+      <span class="sec-tag">01</span>
+      <h2 class="sec-title">whoami</h2>
+    </div>
+    <p class="lead">
+      Ankara Üniversitesi'nde Bilgisayar Mühendisliği okuyorum, Şubat 2027'de mezun oluyorum.
+      Güvenlikten veri analizine, web uygulamalarından teorik bilgisayar bilimine kadar
+      farklı alanlarda uçtan uca proje geliştirmeyi seviyorum.
+    </p>
+    <div class="about-grid">
+      <div class="field-row">
+        <span class="field-label">EDUCATION</span>
+        <span class="field-value">Ankara Üniversitesi — Bilgisayar Mühendisliği <span class="accent">(2027)</span></span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">FOCUS</span>
+        <span class="field-value">Security · Data &amp; ML · Software Engineering · Web</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">THESIS</span>
+        <span class="field-value">IEEE TIFS bibliyometrik analiz — BERTopic modelleme + özgün Research Diversity Index (RDI)</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">TARGETS</span>
+        <span class="field-value">Ankara merkezli teknoloji ve savunma sanayi firmaları</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">LOCATION</span>
+        <span class="field-value">Ankara, Türkiye</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <span class="sec-tag">02</span>
+      <h2 class="sec-title">skills --all</h2>
+    </div>
+    <p class="lead">Dört alanda aktif olarak pratik yapıyorum — hiyerarşi yok, hepsi birbirini besliyor.</p>
+    <div class="skill-grid">
+      <div class="skill-card" style="--tag-color: var(--c-sec)">
+        <span class="tag">SECURITY</span>
+        <h3>Web AppSec &amp; Recon</h3>
+        <p>Burp Suite, HTTP request smuggling, auth bypass, Python tabanlı tarama araçları</p>
+      </div>
+      <div class="skill-card" style="--tag-color: var(--c-ml)">
+        <span class="tag">DATA / ML</span>
+        <h3>NLP &amp; Topic Modeling</h3>
+        <p>BERTopic, bibliyometrik analiz, semantic role labeling, klasik ML sınıflandırma</p>
+      </div>
+      <div class="skill-card" style="--tag-color: var(--c-swe)">
+        <span class="tag">SOFTWARE ENG.</span>
+        <h3>Python &amp; Sistem Araçları</h3>
+        <p>Multithreading, otomasyon, kütüphane geliştirme, Linux/bash</p>
+      </div>
+      <div class="skill-card" style="--tag-color: var(--c-web)">
+        <span class="tag">WEB</span>
+        <h3>Full-Stack Prototipleme</h3>
+        <p>Flask, HTML/CSS/JS, kimlik doğrulama, dosya yönetimi, veritabanı entegrasyonu</p>
+      </div>
+      <div class="skill-card" style="--tag-color: var(--c-theory)">
+        <span class="tag">THEORY</span>
+        <h3>Hesaplama Teorisi</h3>
+        <p>Turing makinesi / PDA tasarımı, pumping lemma, otomata görselleştirme</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head">
+      <span class="sec-tag">03</span>
+      <h2 class="sec-title">ls ./projects</h2>
+    </div>
+
+    <div class="cat-block" style="--cat-color: var(--c-sec)">
+      <div class="cat-head"><span class="cat-dot"></span><span class="cat-name">SECURITY</span></div>
+      <div class="proj-list">
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">Cybersecurity-Notes</span>
+          </div>
+          <p class="proj-desc">PortSwigger, TryHackMe ve OverTheWire Bandit için yapılandırılmış çalışma notları ve pratik sırasında yazılmış küçük Python araçları.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/Cybersecurity-Notes" target="_blank" rel="noopener">github ↗</a><span>Python</span><span>Notes</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">log-analysis-project</span>
+          </div>
+          <p class="proj-desc">Linux <code>auth.log</code> üzerinde çalışan Bash tabanlı güvenlik analiz aracı — IP bazlı başarısız giriş tespiti ve brute-force raporlama.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/log-analysis-project" target="_blank" rel="noopener">github ↗</a><span>Bash</span><span>Log Analysis</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">League-Blocker</span>
+          </div>
+          <p class="proj-desc">Öz-disiplin için geliştirilmiş, League of Legends erişimini programlı şekilde kısıtlayan PowerShell aracı.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/League-Blocker" target="_blank" rel="noopener">github ↗</a><span>PowerShell</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-block" style="--cat-color: var(--c-ml)">
+      <div class="cat-head"><span class="cat-dot"></span><span class="cat-name">DATA / ML</span></div>
+      <div class="proj-list">
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">Research-Trend-Analysis-on-Cybersecurity-Publications</span>
+          </div>
+          <p class="proj-desc">IEEE TIFS makaleleri üzerinde BERTopic ile konu modelleme ve özgün bir Research Diversity Index (RDI) metriği geliştirdiğim bitirme projesi. Danışman: Murat Osmanoğlu.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/Research-Trend-Analysis-on-Cybersecurity-Publications-with-Topic-Modeling" target="_blank" rel="noopener">github ↗</a><span>BERTopic</span><span>NLP</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">Semantic-Role-Labeling</span>
+          </div>
+          <p class="proj-desc">Rule-based, CRF ve BERT yaklaşımlarını PropBank/FrameNet veri setleri üzerinde karşılaştıran semantic role labeling çalışması.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/Semantic-Role-Labeling" target="_blank" rel="noopener">github ↗</a><span>NLP</span><span>BERT</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">Movie-Genre-Classification</span>
+          </div>
+          <p class="proj-desc">Film özetlerinden tür sınıflandırması yapan makine öğrenmesi modeli.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/Movie-Genre-Classification" target="_blank" rel="noopener">github ↗</a><span>Python</span><span>Classification</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">happiness</span>
+          </div>
+          <p class="proj-desc">2018-2019 Dünya Mutluluk Raporu verisi üzerinde korelasyon ve regresyon analizi — GDP, sosyal destek ve mutluluk skoru ilişkisi.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/happiness" target="_blank" rel="noopener">github ↗</a><span>Pandas</span><span>Data Analysis</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-block" style="--cat-color: var(--c-swe)">
+      <div class="cat-head"><span class="cat-dot"></span><span class="cat-name">SOFTWARE ENGINEERING</span></div>
+      <div class="proj-list">
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">matrixLibrary</span>
+          </div>
+          <p class="proj-desc">Lineer cebir ve matris işlemleri için sıfırdan yazılmış Python kütüphanesi.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/matrixLibrary" target="_blank" rel="noopener">github ↗</a><span>Python</span><span>Linear Algebra</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">Movie-Based-Hangman-game</span>
+          </div>
+          <p class="proj-desc">Klasik filmlerden esinlenen adam asmaca oyunu.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/Movie-Based-Hangman-game" target="_blank" rel="noopener">github ↗</a><span>Python</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">tic-tac-toe-game-c</span>
+          </div>
+          <p class="proj-desc">C dilinde yazılmış iki oyunculu tic-tac-toe oyunu.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/tic-tac-toe-game-c" target="_blank" rel="noopener">github ↗</a><span>C</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-block" style="--cat-color: var(--c-web)">
+      <div class="cat-head"><span class="cat-dot"></span><span class="cat-name">WEB</span></div>
+      <div class="proj-list">
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">DMS</span>
+          </div>
+          <p class="proj-desc">Flask tabanlı doküman yönetim sistemi — bcrypt ile kullanıcı auth, çoklu dosya yükleme (PDF/DOCX/TXT), tam metin arama ve MySQL BLOB depolama.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/DMS" target="_blank" rel="noopener">github ↗</a><span>Flask</span><span>MySQL</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">GuessTheSound</span>
+          </div>
+          <p class="proj-desc">Film ve oyun ses klipleriyle çalışan tarayıcı tabanlı tahmin oyunu.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/GuessTheSound" target="_blank" rel="noopener">github ↗</a><span>JavaScript</span></div>
+        </div>
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">fitness-app</span>
+          </div>
+          <p class="proj-desc">Günlük egzersiz takibi için geliştirilen web uygulaması.</p>
+          <div class="proj-meta"><a href="https://github.com/yavuzselimuyaner/fitness-app" target="_blank" rel="noopener">github ↗</a><span>JavaScript</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat-block" style="--cat-color: var(--c-theory)">
+      <div class="cat-head"><span class="cat-dot"></span><span class="cat-name">THEORY</span></div>
+      <div class="proj-list">
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-name">pda-tm-visualizer</span>
+          </div>
+          <p class="proj-desc">Otomata teorisi dersleri için PDA ve Turing makinesi çalışmasını adım adım görselleştiren Python aracı.</p>
+          <div class="proj-meta"><span>Python</span><span>Automata Theory</span></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="activity">
+    <div class="sec-head">
+      <span class="sec-tag">04</span>
+      <h2 class="sec-title">tail -f activity.log</h2>
+    </div>
+    <div class="log">
+      <div class="log-line"><span class="log-time">2026</span><span><span class="ok-tag">[DONE]</span> OverTheWire Bandit — tüm seviyeler tamamlandı</span></div>
+      <div class="log-line"><span class="log-time">2026</span><span><span class="ok-tag">[DONE]</span> PortSwigger — HTTP request smuggling (CL.TE / TE.CL) laboratuvarları</span></div>
+      <div class="log-line"><span class="log-time">2026</span><span><span class="ok-tag">[DONE]</span> PortSwigger — authentication timing side-channel laboratuvarı</span></div>
+      <div class="log-line"><span class="log-time">2026</span><span><span class="ok-tag">[DONE]</span> e-Safe Veri Koruma Zirvesi — networking</span></div>
+      <div class="log-line"><span class="log-time">2026</span><span><span class="ok-tag">[IN PROGRESS]</span> MYK Etik Hacker sertifikasyonu — araştırma aşamasında</span></div>
+      <div class="log-line"><span class="log-time">2027</span><span><span class="ok-tag">[PLANNED]</span> Mezuniyet — COM 491/492 bitirme projesi</span></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head">
+      <span class="sec-tag">05</span>
+      <h2 class="sec-title">contact --init</h2>
+    </div>
+    <div class="contact-box">
+      <p style="margin:0; color: var(--muted); max-width: 40ch;">
+        Yeni mezun / junior seviye fırsatlar için görüşmeye açığım. Bir mesaj bırak, dönüş yapayım.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:you@example.com">email</a>
+        <a href="https://github.com/yavuzselimuyaner" target="_blank" rel="noopener">github</a>
+        <a href="#" target="_blank" rel="noopener">linkedin</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  built by yavuz — deployed via github pages — last scan: 2026
+</footer>
+
+<script>
+  // Typed intro line in the terminal — runs once, respects reduced motion
+  const line = "whoami --fields=\"security,ml,swe,web\" --status=\"open-to-work\"";
+  const el = document.getElementById('typed-line');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    el.textContent = line;
+  } else {
+    let i = 0;
+    function type() {
+      if (i <= line.length) {
+        el.textContent = line.slice(0, i);
+        i++;
+        setTimeout(type, 28);
+      }
+    }
+    type();
+  }
+</script>
+
+</body>
+</html>
