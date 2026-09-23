@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yavuz Selim Uyaner — Computer Engineer</title>
-  <meta name="description" content="Portfolio of Yavuz Selim Uyaner: computer engineering student focused on data science and machine learning, cybersecurity, systems, and software development." />
+  <meta name="description" content="Portfolio of Yavuz Selim Uyaner: computer engineering student building embedded firmware, data science and NLP projects, and practical software tools." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,10 +18,10 @@
       --muted:#8a96a8;
       --accent:#67d9c8;
       --accent-2:#8ab4ff;
+      --emb:#9ae6b4;
       --data:#f2b36f;
-      --sec:#ff7b7b;
       --swe:#8ab4ff;
-      --theory:#9ae6b4;
+      --web:#d6a4ff;
       --shadow:0 14px 36px rgba(0,0,0,.35);
     }
 
@@ -121,6 +121,7 @@
     .exp-role{font-weight:700;}
     .exp-date{color:var(--muted); font-size:13px;}
     .exp p{margin:8px 0 0; color:var(--muted); font-size:14px;}
+    .now{display:inline-block; margin-left:8px; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:700; color:var(--bg); background:var(--emb); vertical-align:middle;}
 
     .contact-box{
       padding:22px;
@@ -163,13 +164,13 @@
       <p class="eyebrow">Computer Engineering Student</p>
       <h1>Yavuz Selim Uyaner</h1>
       <p class="subtitle">
-        Ankara University student focused on data science and machine learning first, with cybersecurity, systems, and software development as supporting areas.
+        I like building things end to end: firmware on microcontrollers, NLP and data pipelines, and small software tools that solve a real problem. Right now most of my time goes into embedded systems on the ESP32.
       </p>
       <div class="chips">
-        <span class="chip">Data Science / ML</span>
-        <span class="chip">Cybersecurity</span>
-        <span class="chip">Systems &amp; Infrastructure</span>
-        <span class="chip">Software Development</span>
+        <span class="chip">Embedded C &amp; ESP-IDF</span>
+        <span class="chip">Data Science / NLP</span>
+        <span class="chip">Python &amp; Backend</span>
+        <span class="chip">Web</span>
       </div>
     </div>
   </section>
@@ -180,7 +181,7 @@
       <h2 class="sec-title">About</h2>
     </div>
     <p class="lead">
-      I build practical projects that connect research, infrastructure, and implementation. The portfolio is organized to reflect the CV more closely, with data science and machine learning first.
+      I'm finishing my B.S. in Computer Engineering at Ankara University. Computer Architecture was my favourite course, and assisting in the microprocessor and logic design labs pulled me towards the hardware side. Alongside that I wrote an NLP thesis, built backend systems during an internship, and launched a website for our family business.
     </p>
     <div class="grid about-grid">
       <div class="info-card">
@@ -188,8 +189,8 @@
         <div class="value">Ankara University — B.S. in Computer Engineering (English), 2021–2027</div>
       </div>
       <div class="info-card">
-        <div class="label">Focus</div>
-        <div class="value">Data Science &amp; ML · Cybersecurity · Systems &amp; Infrastructure · Software Development</div>
+        <div class="label">Currently</div>
+        <div class="value">Learning embedded firmware on ESP32-S3: GPIO, timers, interrupts, I²C, MQTT</div>
       </div>
       <div class="info-card">
         <div class="label">Languages</div>
@@ -207,23 +208,23 @@
       <span class="sec-tag">02</span>
       <h2 class="sec-title">Skills</h2>
     </div>
-    <p class="lead">The strongest emphasis is on AI and data engineering, followed by security and systems.</p>
+    <p class="lead">What I actually use in the projects below.</p>
     <div class="grid skills-grid">
-      <div class="skill-card" style="--border-color: var(--data)">
-        <h3>AI &amp; Data Engineering</h3>
-        <p>Python scientific stack, NLP pipelines, BERTopic, LDA, NMF, semantic role labeling, deep learning, and computer vision.</p>
+      <div class="skill-card" style="--border-color: var(--emb)">
+        <h3>Embedded &amp; Low-Level</h3>
+        <p>C, ESP-IDF, memory-mapped I/O, timers, PWM, interrupts, I²C, MQTT over TLS, PlatformIO, and Wokwi simulation.</p>
       </div>
-      <div class="skill-card" style="--border-color: var(--sec)">
-        <h3>Security &amp; Architecture</h3>
-        <p>Network security fundamentals, CIA triad, risk management, RBAC, cryptography, and vulnerability assessment concepts.</p>
+      <div class="skill-card" style="--border-color: var(--data)">
+        <h3>Data Science &amp; NLP</h3>
+        <p>Pandas, NumPy, scikit-learn, BERTopic, LDA, NMF, BERT, PyTorch, TensorFlow, and Jupyter.</p>
       </div>
       <div class="skill-card" style="--border-color: var(--swe)">
-        <h3>Systems &amp; Infrastructure</h3>
-        <p>Linux system administration, Git, SQLite, Bash scripting, and practical infrastructure thinking.</p>
+        <h3>Software &amp; Backend</h3>
+        <p>Python, Flask, MySQL, SQLite, Java/OOP, algorithms and data structures, role-based access control.</p>
       </div>
-      <div class="skill-card" style="--border-color: var(--theory)">
-        <h3>Tools &amp; Platforms</h3>
-        <p>Wireshark, Nmap, VS Code, LaTeX, Jupyter Notebook, TensorFlow, PyTorch, Pandas, NumPy, Scikit-learn, and Matplotlib.</p>
+      <div class="skill-card" style="--border-color: var(--web)">
+        <h3>Tools &amp; Web</h3>
+        <p>Git, Linux, Bash, PowerShell, CMake, HTML/CSS/JS, technical SEO, and LaTeX.</p>
       </div>
     </div>
   </section>
@@ -233,14 +234,30 @@
       <span class="sec-tag">03</span>
       <h2 class="sec-title">Projects</h2>
     </div>
-    <p class="lead">Projects are grouped by type only. GitHub links appear inline when available.</p>
+    <p class="lead">Grouped by what they are. GitHub links appear inline when the code is public.</p>
+
+    <div class="category" style="--cat-color: var(--emb)">
+      <div class="category-head"><span class="dot"></span><span class="category-name">Embedded</span></div>
+      <div class="proj-list">
+        <div class="proj">
+          <h3>embedded-learning <span class="now">in progress</span></h3>
+          <p>Firmware practice on a LILYGO T-Display-S3 (ESP32-S3) with ESP-IDF: toolchain bring-up, GPIO through both the driver API and direct register writes, hardware timers, PWM, interrupts, and switch debouncing, with written notes for each step.</p>
+          <div class="meta"><a href="https://github.com/yavuzselimuyaner/embedded-learning" target="_blank" rel="noopener">github ↗</a><span>C</span><span>ESP-IDF</span><span>ESP32-S3</span></div>
+        </div>
+        <div class="proj">
+          <h3>IoT Sensor Node</h3>
+          <p>A simulated ESP32 node that reads a DHT22 and an MPU6050 (raw register access), shows values on an OLED, serves a small web page, and publishes data and receives commands over MQTT on a TLS-secured WebSocket.</p>
+          <div class="meta"><a href="https://github.com/yavuzselimuyaner/embedded-learning" target="_blank" rel="noopener">github ↗</a><span>ESP32</span><span>MQTT</span><span>Wokwi</span></div>
+        </div>
+      </div>
+    </div>
 
     <div class="category" style="--cat-color: var(--data)">
       <div class="category-head"><span class="dot"></span><span class="category-name">Data Science / ML</span></div>
       <div class="proj-list">
         <div class="proj">
           <h3>Research Trend Analysis via Unsupervised Topic Modeling</h3>
-          <p>Senior thesis project that processed 4,000+ academic publications with BERTopic, reaching a coherence score of 0.6048 and mapping interdisciplinary research trajectories.</p>
+          <p>Senior thesis: processed 4,000+ academic publications with BERTopic (coherence 0.6048) to map how research topics shift over time.</p>
           <div class="meta"><a href="https://github.com/yavuzselimuyaner/Research-Trend-Analysis-on-Cybersecurity-Publications-with-Topic-Modeling" target="_blank" rel="noopener">github ↗</a><span>BERTopic</span><span>NLP</span></div>
         </div>
         <div class="proj">
@@ -261,34 +278,33 @@
       </div>
     </div>
 
-    <div class="category" style="--cat-color: var(--sec)">
-      <div class="category-head"><span class="dot"></span><span class="category-name">Cybersecurity</span></div>
-      <div class="proj-list">
-        <div class="proj">
-          <h3>Cybersecurity-Notes</h3>
-          <p>Structured study notes and small Python tools from PortSwigger, TryHackMe, and OverTheWire practice.</p>
-          <div class="meta"><a href="https://github.com/yavuzselimuyaner/Cybersecurity-Notes" target="_blank" rel="noopener">github ↗</a><span>Python</span><span>Notes</span></div>
-        </div>
-        <div class="proj">
-          <h3>log-analysis-project</h3>
-          <p>A Bash-based Linux log analysis tool for detecting failed login patterns and summarizing brute-force activity.</p>
-          <div class="meta"><a href="https://github.com/yavuzselimuyaner/log-analysis-project" target="_blank" rel="noopener">github ↗</a><span>Bash</span><span>Log Analysis</span></div>
-        </div>
-      </div>
-    </div>
-
     <div class="category" style="--cat-color: var(--swe)">
-      <div class="category-head"><span class="dot"></span><span class="category-name">Systems &amp; Software</span></div>
+      <div class="category-head"><span class="dot"></span><span class="category-name">Software &amp; Tools</span></div>
       <div class="proj-list">
         <div class="proj">
           <h3>Graph-Based Indoor Navigation System</h3>
-          <p>A mobile navigation framework that models floor plans as weighted graphs and uses Dijkstra’s algorithm for optimal routing with QR-based localization.</p>
+          <p>Built during my hospital internship: floor plans modeled as weighted graphs, Dijkstra’s algorithm for routing, and QR codes for locating the user.</p>
           <div class="meta"><a href="#experience" aria-label="Referenced in experience section">related work</a><span>Python</span><span>Graphs</span></div>
         </div>
         <div class="proj">
-          <h3>RBAC-Enabled Secure Document Management (DMS)</h3>
-          <p>A secure backend for sensitive records with role-based access control, metadata encryption, access logging, and audit trail mechanisms.</p>
+          <h3>Document Management System</h3>
+          <p>A backend for sensitive hospital records with role-based access control, metadata encryption, access logging, and an audit trail.</p>
           <div class="meta"><a href="https://github.com/yavuzselimuyaner/DMS" target="_blank" rel="noopener">github ↗</a><span>Flask</span><span>MySQL</span></div>
+        </div>
+        <div class="proj">
+          <h3>GuessTheSound</h3>
+          <p>A browser guessing game built on short movie sound clips, with a Python scraper that downloads the clips locally.</p>
+          <div class="meta"><a href="https://github.com/yavuzselimuyaner/GuessTheSound" target="_blank" rel="noopener">github ↗</a><span>Python</span><span>JavaScript</span></div>
+        </div>
+        <div class="proj">
+          <h3>League-Blocker</h3>
+          <p>A PowerShell focus tool that blocks a game’s network traffic with Windows Firewall rules, using live DNS resolution plus known IP ranges and ports.</p>
+          <div class="meta"><a href="https://github.com/yavuzselimuyaner/League-Blocker" target="_blank" rel="noopener">github ↗</a><span>PowerShell</span><span>Windows</span></div>
+        </div>
+        <div class="proj">
+          <h3>log-analysis-project</h3>
+          <p>A Bash tool that parses Linux auth logs and summarizes repeated failed logins.</p>
+          <div class="meta"><a href="https://github.com/yavuzselimuyaner/log-analysis-project" target="_blank" rel="noopener">github ↗</a><span>Bash</span><span>Linux</span></div>
         </div>
         <div class="proj">
           <h3>matrixLibrary</h3>
@@ -302,6 +318,17 @@
         </div>
       </div>
     </div>
+
+    <div class="category" style="--cat-color: var(--web)">
+      <div class="category-head"><span class="dot"></span><span class="category-name">Web</span></div>
+      <div class="proj-list">
+        <div class="proj">
+          <h3>Granit Dünyası</h3>
+          <p>Website for our family’s tile and bathroom showroom in Samsun. I built and launched it, including technical SEO: sitemap, canonical URLs, and structured data.</p>
+          <div class="meta"><a href="https://granitdunyasisamsun.com" target="_blank" rel="noopener">live site ↗</a><span>HTML/CSS</span><span>SEO</span></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="experience">
@@ -312,31 +339,24 @@
     <div class="experience-list">
       <div class="exp">
         <div class="exp-top">
-          <div class="exp-role">Part-Time Laboratory Assistant — Ankara University Engineering Faculty</div>
-          <div class="exp-date">Oct 2024 – Jun 2025</div>
+          <div class="exp-role">Intern — Erişilebilirlik.org</div>
+          <div class="exp-date">Nov 2025 – Jan 2026</div>
         </div>
-        <p>Facilitated microprocessor and logic design labs; supervised hardware-level experiments and C/Python debugging.</p>
+        <p>Reviewed WCAG accessibility standards and their Turkish equivalents, and tested accessibility tools across mobile, desktop, and web browsers.</p>
       </div>
       <div class="exp">
         <div class="exp-top">
           <div class="exp-role">Information Technology Intern — Ankara University Ibn-i Sina Hospital</div>
           <div class="exp-date">Jun 2025 – Aug 2025</div>
         </div>
-        <p>Developed a graph-based indoor navigation system and built an RBAC-enabled secure document management system for sensitive hospital records.</p>
+        <p>Developed a graph-based indoor navigation system and built a document management system with role-based access for sensitive hospital records.</p>
       </div>
-            <div class="exp">
+      <div class="exp">
         <div class="exp-top">
-          <div class="exp-role">Information Technology Intern — Ankara University Ibn-i Sina Hospital</div>
-          <div class="exp-date">Jun 2025 – Aug 2025</div>
+          <div class="exp-role">Part-Time Laboratory Assistant — Ankara University Engineering Faculty</div>
+          <div class="exp-date">Oct 2024 – Jun 2025</div>
         </div>
-        <p>Developed a graph-based indoor navigation system and built an RBAC-enabled secure document management system for sensitive hospital records.</p>
-      </div>
-            <div class="exp">
-        <div class="exp-top">
-          <div class="exp-role">Intern — Erişilebilirlik.org</div>
-          <div class="exp-date">November 2025 – January 2026</div>
-        </div>
-        <p>During my internship at Erisilebilirlik.org, I reviewed WCAG accessibility standards and their equivalents in Turkey. I also researched and tested various accessibility testing tools across mobile, desktop, and web browsers.</p>
+        <p>Ran microprocessor and logic design labs; supervised hardware experiments and helped students debug C and Python.</p>
       </div>
     </div>
   </section>
@@ -347,7 +367,7 @@
       <h2 class="sec-title">Contact</h2>
     </div>
     <div class="contact-box">
-      <p>Open to internship and junior-level opportunities, especially roles that combine AI, data engineering, systems, and security.</p>
+      <p>Open to internships and junior roles, especially in embedded systems and software development.</p>
       <div class="contact-links">
         <a class="pill" href="https://mail.google.com/mail/?view=cm&fs=1&to=yavuzselimuyaner@gmail.com" target="_blank" rel="noopener">email</a>
         <a class="pill" href="https://github.com/yavuzselimuyaner" target="_blank" rel="noopener">github</a>
